@@ -9,6 +9,9 @@ import Pagination from "./hooks/Pagination";
 import EmployeeDb from "./hooks/EmployeeDb";
 import EMI from "./hooks/EMI";
 import PasswordGenerator from "./hooks/PasswordGenerator";
+import Cart from "./hooks/Cart";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import MyCart from "./hooks/MyCart";
 
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
@@ -36,7 +39,11 @@ const App = () => {
       {/* <Pagination/> */}
       {/* <EmployeeDb/> */}
       {/* <EMI/> */}
-      <PasswordGenerator />
+      {/* <PasswordGenerator /> */}
+      <Routes>
+        <Route path="/" element={<Cart />} />
+        <Route path="/cart" element={<MyCart />} />
+      </Routes>
     </div>
   );
 };
