@@ -12,6 +12,7 @@ import PasswordGenerator from "./hooks/PasswordGenerator";
 import Cart from "./hooks/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MyCart from "./hooks/MyCart";
+import MultiSelect from "./hooks/MultiSelect";
 
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
@@ -40,10 +41,11 @@ const App = () => {
       {/* <EmployeeDb/> */}
       {/* <EMI/> */}
       {/* <PasswordGenerator /> */}
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Cart />} />
         <Route path="/cart" element={<MyCart />} />
-      </Routes>
+      </Routes> */}
+      <MultiSelect />
     </div>
   );
 };
