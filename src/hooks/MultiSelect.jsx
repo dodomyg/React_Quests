@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const dataName = [
   { id: 1, name: "John" },
@@ -15,8 +15,13 @@ const dataName = [
 
 const MultiSelect = () => {
   const [search, setSearch] = useState("");
+  const inputRef = useRef(null);
   const [selected, setSelected] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   const filterdata = dataName.filter((u) => {
     if (selected.includes(u)) {
@@ -32,10 +37,12 @@ const MultiSelect = () => {
   const pushUserToSelected = (user) => {
     setSelected([...selected, user]);
     setSearch("");
+    inputRef.current.focus();
   };
 
   const removeFromSelected = (user) => {
     setSelected(selected.filter((u) => u?.id !== user.id));
+    inputRef.current.focus();
   };
 
   return (
@@ -56,6 +63,7 @@ const MultiSelect = () => {
             ))}
         </div>
         <input
+          ref={inputRef}
           className="border-black w-[80%] p-1 relative"
           value={search}
           onChange={(e) => setSearch(e.target.value)}

@@ -13,6 +13,7 @@ import Cart from "./hooks/Cart";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MyCart from "./hooks/MyCart";
 import MultiSelect from "./hooks/MultiSelect";
+import ProgressComponent from "./hooks/ProgressComponent";
 
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
@@ -45,7 +46,8 @@ const App = () => {
         <Route path="/" element={<Cart />} />
         <Route path="/cart" element={<MyCart />} />
       </Routes> */}
-      <MultiSelect />
+      {/* <MultiSelect /> */}
+      <ProgressComponent />
     </div>
   );
 };
