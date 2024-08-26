@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useContext, useEffect } from "react";
 import Ref from "./hooks/Ref";
 import HigherOrder from "./hooks/HigherOrder";
 import useApiCall from "./hooks/useApiCall";
@@ -14,7 +14,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MyCart from "./hooks/MyCart";
 import MultiSelect from "./hooks/MultiSelect";
 import ProgressComponent from "./hooks/ProgressComponent";
-
+import ThemePage from "./hooks/ThemePage";
+import { SwitchContext } from "./context/SwitchContext";
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
 );
@@ -22,8 +23,22 @@ const LazyLoadingComponent = React.lazy(() =>
 const App = () => {
   // const { data , loading , error} = useApiCall('https://jsonplaceholder.typicode.com/posts')
 
+  const { theme, toggleTheme } = useContext(SwitchContext);
+
+  useEffect(() => {
+    document.querySelector(".parent").classList.remove("light", "dark");
+    document.querySelector(".parent").classList.add(theme);
+  }, [theme]);
+
   return (
-    <div>
+    <div
+      className={`parent w-full h-full ${
+        theme === "light" ? "bg-white text-black" : "bg-black text-white"
+      }`}
+    >
+      <button className="text-3xl fixed top-5 right-5" onClick={toggleTheme}>
+        {theme === "light" ? "🌙" : "☀️"}
+      </button>
       {/* <UseEffect /> */}
       {/* <ExampleComponent /> */}
       {/* <Ref /> */}
@@ -47,7 +62,8 @@ const App = () => {
         <Route path="/cart" element={<MyCart />} />
       </Routes> */}
       {/* <MultiSelect /> */}
-      <ProgressComponent />
+      {/* <ProgressComponent /> */}
+      <ThemePage />
     </div>
   );
 };
