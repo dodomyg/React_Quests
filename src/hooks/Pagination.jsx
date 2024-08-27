@@ -50,4 +50,6 @@ const Pagination = () => {
   );
 };
 
+//pagination
+
 export default Pagination;
