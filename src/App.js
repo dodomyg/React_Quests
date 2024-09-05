@@ -16,6 +16,7 @@ import MultiSelect from "./hooks/MultiSelect";
 import ProgressComponent from "./hooks/ProgressComponent";
 import ThemePage from "./hooks/ThemePage";
 import { SwitchContext } from "./context/SwitchContext";
+import Quiz from "./hooks/Quiz";
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
 );
@@ -63,7 +64,9 @@ const App = () => {
       </Routes> */}
       {/* <MultiSelect /> */}
       {/* <ProgressComponent /> */}
-      <ThemePage />
+      {/* <ThemePage /> */}
+
+      <Quiz />
     </div>
   );
 };
