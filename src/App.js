@@ -17,6 +17,10 @@ import ProgressComponent from "./hooks/ProgressComponent";
 import ThemePage from "./hooks/ThemePage";
 import { SwitchContext } from "./context/SwitchContext";
 import Quiz from "./hooks/Quiz";
+import Main from "./hooks/BreadCrumbs/Main";
+import ProductPage from "./hooks/BreadCrumbs/ProductPage";
+import SingleProduct from "./hooks/BreadCrumbs/SingleProduct";
+import BreadCrumbs from "./hooks/BreadCrumbs";
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
 );
@@ -66,7 +70,13 @@ const App = () => {
       {/* <ProgressComponent /> */}
       {/* <ThemePage /> */}
 
-      <Quiz />
+      {/* <Quiz /> */}
+      <BreadCrumbs/>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/products" element={<ProductPage />} />
+        <Route path="/products/:id" element={<SingleProduct />} />
+      </Routes>
     </div>
   );
 };
