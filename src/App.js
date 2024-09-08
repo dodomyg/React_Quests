@@ -21,6 +21,7 @@ import Main from "./hooks/BreadCrumbs/Main";
 import ProductPage from "./hooks/BreadCrumbs/ProductPage";
 import SingleProduct from "./hooks/BreadCrumbs/SingleProduct";
 import BreadCrumbs from "./hooks/BreadCrumbs";
+import CurrencyConverter from "./hooks/CurrencyConverter";
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
 );
@@ -71,12 +72,14 @@ const App = () => {
       {/* <ThemePage /> */}
 
       {/* <Quiz /> */}
-      <BreadCrumbs/>
+      {/* <BreadCrumbs/>
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/products" element={<ProductPage />} />
         <Route path="/products/:id" element={<SingleProduct />} />
-      </Routes>
+      </Routes> */}
+
+      <CurrencyConverter />
     </div>
   );
 };
