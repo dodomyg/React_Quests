@@ -22,6 +22,7 @@ import ProductPage from "./hooks/BreadCrumbs/ProductPage";
 import SingleProduct from "./hooks/BreadCrumbs/SingleProduct";
 import BreadCrumbs from "./hooks/BreadCrumbs";
 import CurrencyConverter from "./hooks/CurrencyConverter";
+import OTP from "./hooks/OTP";
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
 );
@@ -79,7 +80,8 @@ const App = () => {
         <Route path="/products/:id" element={<SingleProduct />} />
       </Routes> */}
 
-      <CurrencyConverter />
+      {/* <CurrencyConverter /> */}
+      <OTP />
     </div>
   );
 };
