@@ -1,35 +1,29 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+// import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const getProducts = createAsyncThunk("apiCall/getProducts", async () => {
-  const response = await fetch("https://fakestoreapi.com/products");
-  const data = await response.json();
-  return data;
-});
+// export const getProducts = createAsyncThunk("api/getProducts", async () => {
+//   const resp = await fetch("https://dummyjson.com/products");
+//   const data = await resp.json();
+//   return data;
+// })
 
-const apiCallSlice = createSlice({
-  name: "apiCall",
-  initialState: {
-    data: [],
-    loading: false,
-    error: null,
-  },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(getProducts.pending, (state) => {
-      state.loading = true;
-    });
+// const apiSlice = createSlice({
+//   name:"api",
+//   initialState:{
+//     data:[],
+//     loading:false,
+//     error:null
+//   },
+//   reducers:{},
+//   extraReducers:(builder)=>{
+//     builder.addCase(getProducts.pending,(state)=>{
+//       state.loading = true
+//     }).addCase(getProducts.fulfilled,(state,action)=>{
+//       state.loading = false
+//       state.data = action.payload
+//     })
+//   }
+// });
 
-    builder.addCase(getProducts.fulfilled, (state, action) => {
-      state.data = action.payload;
-      state.loading = false;
-    });
 
-    builder.addCase(getProducts.rejected, (state, action) => {
-      console.log("Err", action.error);
-      state.error = action.error.message;
-      state.loading = false;
-    });
-  },
-});
-
-export default apiCallSlice.reducer;
+// export const {  } = apiSlice.actions;
+// export default apiSlice.reducer;

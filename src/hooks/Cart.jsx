@@ -1,80 +1,63 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { addToCart, decrementQuantity } from "../redux/slice/cartSlice";
-import { useCallback, useEffect } from "react";
-import { getProducts } from "../redux/slice/apiCallSlice";
+import { Link } from "react-router-dom";
+import useApiCall from "./useApiCall";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart, decreamentQuantity } from "../redux/slice/cartSlice";
 
 const Cart = () => {
+  const { data, loading, error } = useApiCall(
+    "https://fakestoreapi.com/products"
+  );
+
   const { cart } = useSelector((state) => state.cart);
-  const { data, loading, error } = useSelector((state) => state.api);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
-  const fetchData = useCallback(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+  const dispach = useDispatch();
 
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+  if (loading) return <h1>Loading...</h1>;
+  if (error) return <h1>{error}</h1>;
 
-  const addToCartHandler = (product) => {
-    dispatch(addToCart(product));
-  };
-
-  const decreaseQuantityHandler = (product) => {
-    dispatch(decrementQuantity(product));
-  };
-
-  console.log("Data:", data);
-  console.log("Loading:", loading);
-  console.log("Error:", error);
-
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
-
-  if (error) {
-    return <h1>{error}</h1>;
-  }
-
+  var len = 0;
+  var totalLen = cart.length === 0 ? 0 : cart.forEach(element => {
+      len+=element.quantity
+  });
   return (
-    <div className="px-3 py-2">
-      <div className="flex items-center justify-between w-[98%] fixed bg-black text-white">
-        <h1>Redux Add to cart</h1>
-        <button onClick={() => navigate("/cart")}>🛒 ({cart?.length})</button>
+    <div className="m-2">
+      <div className="flex w-[97%] z-10 items-center justify-between top-2 fixed bg-black text-white">
+        <h1>{"Redux Shopping"}</h1>
+        <Link to={"/cart"}>🛒({len})</Link>
       </div>
 
-      <div className="grid grid-cols-4 place-items-center w-full gap-10">
-        {data &&
-          data.map((d, i) => (
-            <div className="border border-black" key={i}>
-              <img src={d?.image} alt={i} className="h-72 w-72" />
-              <h1>{d?.title}</h1>
-              <h1>${d?.price}</h1>
-              <div>
-                <button
-                  onClick={() => decreaseQuantityHandler(d)}
-                  className="bg-red-300 text-black px-2"
-                >
-                  -
-                </button>
-                <span className="px-4">{cart.find(item => item.id === d.id)?.quantity || 0}</span>
-                <button
-                  onClick={() => addToCartHandler(d)}
-                  className="bg-light-blue-300 text-black px-2"
-                >
-                  +
-                </button>
-              </div>
+      <div className="grid grid-cols-4 gap-3 place-items-center ">
+        {data?.map((d, i) => (
+          <div className="border w-[300px] border-black" key={i}>
+            <img className="w-[300px] h-[300px]" src={d.image} alt={d.title} />
+            <h1>{d.title}</h1>
+            <div>
               <button
-                onClick={() => addToCartHandler(d)}
-                className="bg-light-blue-300 text-black"
+                className="bg-black text-white p-2 rounded-xl"
+                onClick={() => dispach(decreamentQuantity(d))}
               >
-                Add to cart
+                -
+              </button>
+              <span className="mx-2">
+                {cart.find((i) => i.id === d.id)?.quantity || 0}
+              </span>
+
+              <button
+                className="bg-black text-white p-2 rounded-xl"
+                onClick={() => dispach(addToCart(d))}
+              >
+                +
               </button>
             </div>
-          ))}
+            <button
+              className="bg-black text-white p-2 rounded-xl"
+              onClick={() => dispach(addToCart(d))}
+            >
+              Add to cart
+            </button>
+            <h1>${d.price}</h1>
+          </div>
+        ))}
       </div>
     </div>
   );

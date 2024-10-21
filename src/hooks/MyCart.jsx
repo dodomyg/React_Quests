@@ -1,43 +1,68 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { removeFromCart } from "../redux/slice/cartSlice";
+import {
+  addToCart,
+  decreamentQuantity,
+  removeFromCart,
+} from "../redux/slice/cartSlice";
 
 const MyCart = () => {
   const { cart } = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
-  const remove = (id) => {
-    dispatch(removeFromCart(id));
-  };
+  var totalCost = 0;
+  const dispach = useDispatch();
 
-  const cost = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+  cart.forEach((element) => {
+    totalCost += element.price * element.quantity;
+  });
 
   return (
-    <div className="px-3 py-2">
-      <button onClick={() => navigate(-1)}>🔙</button>
+    <div className="p-2">
+      <button onClick={() => navigate("/")}>🔙</button>
 
-      <h1 className="text-3xl">My Cart</h1>
+      <div className="grid grid-cols-3 place-content-center place-items-center gap-5">
+        {cart.length === 0 && (
+          <h1 className="text-4xl font-semibold">Cart is empty</h1>
+        )}
+        {cart.map((item) => (
+          <div className="flex flex-col items-center" key={item.id}>
+            <img
+              className="w-[200px] h-[200px]"
+              src={item.image}
+              alt={item.title}
+            />
+            <h1>{item.title}</h1>
+            <h1>{item.price}</h1>
+            <button onClick={() => dispach(removeFromCart(item))}>
+              Remove
+            </button>
 
-      <div className="flex flex-col justify-start gap-5">
-        {cart.length === 0 && <h1>Your cart is empty</h1>}
-        {cart.length > 0 &&
-          cart?.map((d, i) => (
-            <div className="border border-black" key={i}>
-              <img src={d?.image} alt={i} className="h-72 w-72" />
-              <h1>{d?.title}</h1>
-              <h1>${d?.price} x {d?.quantity}</h1>
+            <div className="flex items-center gap-2">
               <button
-                onClick={() => remove(d?.id)}
-                className="bg-light-blue-300 text-black"
+                className="text-white bg-black p-2"
+                onClick={() => dispach(decreamentQuantity(item))}
               >
-                Remove from Cart
+                -
+              </button>
+              <span>{item.quantity < 1 ? 0 : item?.quantity}</span>
+              <button
+                className="text-white bg-black p-2"
+                onClick={() => dispach(addToCart(item))}
+              >
+                +
               </button>
             </div>
-          ))}
+          </div>
+        ))}
       </div>
 
-      {cart.length > 0 && <h1>Total Cost: ${cost}</h1>}
+      {totalCost > 0 && (
+        <h1 className="text-2xl font-semibold">
+          Total Cost: {totalCost.toPrecision(4)}
+        </h1>
+      )}
     </div>
   );
 };

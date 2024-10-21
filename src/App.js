@@ -10,7 +10,7 @@ import EmployeeDb from "./hooks/EmployeeDb";
 import EMI from "./hooks/EMI";
 import PasswordGenerator from "./hooks/PasswordGenerator";
 import Cart from "./hooks/Cart";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes, useLocation } from "react-router-dom";
 import MyCart from "./hooks/MyCart";
 import MultiSelect from "./hooks/MultiSelect";
 import ProgressComponent from "./hooks/ProgressComponent";
@@ -31,6 +31,8 @@ const App = () => {
   // const { data , loading , error} = useApiCall('https://jsonplaceholder.typicode.com/posts')
 
   const { theme, toggleTheme } = useContext(SwitchContext);
+
+  const location = useLocation();
 
   useEffect(() => {
     document.querySelector(".parent").classList.remove("light", "dark");
@@ -64,24 +66,25 @@ const App = () => {
       {/* <EmployeeDb/> */}
       {/* <EMI/> */}
       {/* <PasswordGenerator /> */}
-      {/* <Routes>
+      <Routes>
+      
         <Route path="/" element={<Cart />} />
         <Route path="/cart" element={<MyCart />} />
-      </Routes> */}
+      </Routes>
       {/* <MultiSelect /> */}
       {/* <ProgressComponent /> */}
       {/* <ThemePage /> */}
 
       {/* <Quiz /> */}
-      {/* <BreadCrumbs/>
-      <Routes>
+       {/* <BreadCrumbs/> */}
+      {/* <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/products" element={<ProductPage />} />
         <Route path="/products/:id" element={<SingleProduct />} />
-      </Routes> */}
+      </Routes>  */}
 
       {/* <CurrencyConverter /> */}
-      <OTP />
+      {/* <OTP /> */}
     </div>
   );
 };
