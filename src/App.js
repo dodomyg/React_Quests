@@ -10,7 +10,13 @@ import EmployeeDb from "./hooks/EmployeeDb";
 import EMI from "./hooks/EMI";
 import PasswordGenerator from "./hooks/PasswordGenerator";
 import Cart from "./hooks/Cart";
-import { BrowserRouter, Link, Route, Routes, useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Link,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import MyCart from "./hooks/MyCart";
 import MultiSelect from "./hooks/MultiSelect";
 import ProgressComponent from "./hooks/ProgressComponent";
@@ -23,6 +29,8 @@ import SingleProduct from "./hooks/BreadCrumbs/SingleProduct";
 import BreadCrumbs from "./hooks/BreadCrumbs";
 import CurrencyConverter from "./hooks/CurrencyConverter";
 import OTP from "./hooks/OTP";
+import UseMemo from "./hooks/UseMemo";
+import UseCallBack from "./hooks/UseCallBack";
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
 );
@@ -66,17 +74,17 @@ const App = () => {
       {/* <EmployeeDb/> */}
       {/* <EMI/> */}
       {/* <PasswordGenerator /> */}
-      <Routes>
+      {/* <Routes>
       
         <Route path="/" element={<Cart />} />
         <Route path="/cart" element={<MyCart />} />
-      </Routes>
+      </Routes> */}
       {/* <MultiSelect /> */}
       {/* <ProgressComponent /> */}
       {/* <ThemePage /> */}
 
       {/* <Quiz /> */}
-       {/* <BreadCrumbs/> */}
+      {/* <BreadCrumbs/> */}
       {/* <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/products" element={<ProductPage />} />
@@ -85,6 +93,8 @@ const App = () => {
 
       {/* <CurrencyConverter /> */}
       {/* <OTP /> */}
+      {/* <UseMemo/> */}
+      <UseCallBack />
     </div>
   );
 };

@@ -1,32 +1,31 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from "react";
 
-function ExampleComponent() {
-    
-  const [count, setCount] = useState(0);
-  const [number, setNumber] = useState(1);
-
-  // Heavy computation function
-  const expensiveCalculation = (num) => {
-    console.log('Calculating...');
-    let total = 0;
-    for (let i = 0; i < 1000000000; i++) {
-      total += num;
-    }
-    return total;
+const UseMemo = () => {
+  const [num, setNum] = useState(0);
+  const [input, setInput] = useState(0);
+  const expensive = (x) => {
+    console.log("expensive...");
+    for (let i = 0; i < 1000000000; i++) {}
+    return x * 2;
   };
 
-  // Memoize the result of the expensive calculation
-  const memoizedValue = useMemo(() => expensiveCalculation(number), [number]);
+  const val = useMemo(() => {
+    return expensive(input);
+  }, [input]);
 
   return (
     <div>
-      <h2>Count: {count}</h2>
-      <button onClick={() => setCount(count + 1)}>Increment Count</button>
-
-      <h2>Expensive Calculation Result: {memoizedValue}</h2>
-      <button onClick={() => setNumber(number + 1)}>Increment Number</button>
+      <div>{num}</div>
+      <button onClick={() => setNum(num + 1)}>+</button>
+      <br />
+      <input
+        type="number"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <div>Expensive val : {val}</div>
     </div>
   );
-}
+};
 
-export default ExampleComponent;
+export default UseMemo;
