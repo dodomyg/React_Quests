@@ -31,6 +31,8 @@ import CurrencyConverter from "./hooks/CurrencyConverter";
 import OTP from "./hooks/OTP";
 import UseMemo from "./hooks/UseMemo";
 import UseCallBack from "./hooks/UseCallBack";
+import UseRefx from "./hooks/UseRefx";
+import Accordation from "./hooks/Accordation";
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
 );
@@ -94,7 +96,9 @@ const App = () => {
       {/* <CurrencyConverter /> */}
       {/* <OTP /> */}
       {/* <UseMemo/> */}
-      <UseCallBack />
+      {/* <UseCallBack /> */}
+      {/* <UseRefx /> */}
+      <Accordation/>
     </div>
   );
 };
