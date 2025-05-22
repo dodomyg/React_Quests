@@ -34,6 +34,7 @@ import UseCallBack from "./hooks/UseCallBack";
 import UseRefx from "./hooks/UseRefx";
 import Accordation from "./hooks/Accordation";
 import InfiniteScrolling from "./hooks/InfiniteScrolling";
+import XandO from "./hooks/XandO";
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
 );
@@ -100,7 +101,8 @@ const App = () => {
       {/* <UseCallBack /> */}
       {/* <UseRefx /> */}
       {/* <Accordation/> */}
-      <InfiniteScrolling/>
+      {/* <InfiniteScrolling/> */}
+      <XandO/>
     </div>
   );
 };
