@@ -35,6 +35,8 @@ import UseRefx from "./hooks/UseRefx";
 import Accordation from "./hooks/Accordation";
 import InfiniteScrolling from "./hooks/InfiniteScrolling";
 import XandO from "./hooks/XandO";
+import PollWidget from "./hooks/PollWidget";
+import ChangeOrder from "./hooks/ChangeOrder";
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
 );
@@ -102,7 +104,9 @@ const App = () => {
       {/* <UseRefx /> */}
       {/* <Accordation/> */}
       {/* <InfiniteScrolling/> */}
-      <XandO/>
+      {/* <XandO/> */}
+      {/* <PollWidget/> */}
+      <ChangeOrder/>
     </div>
   );
 };
