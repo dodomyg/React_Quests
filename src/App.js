@@ -37,6 +37,7 @@ import InfiniteScrolling from "./hooks/InfiniteScrolling";
 import XandO from "./hooks/XandO";
 import PollWidget from "./hooks/PollWidget";
 import ChangeOrder from "./hooks/ChangeOrder";
+import CheckboxTable from "./hooks/CheckboxTable";
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
 );
@@ -106,7 +107,8 @@ const App = () => {
       {/* <InfiniteScrolling/> */}
       {/* <XandO/> */}
       {/* <PollWidget/> */}
-      <ChangeOrder/>
+      {/* <ChangeOrder/> */}
+      <CheckboxTable />
     </div>
   );
 };
