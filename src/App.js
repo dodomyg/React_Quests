@@ -38,6 +38,8 @@ import XandO from "./hooks/XandO";
 import PollWidget from "./hooks/PollWidget";
 import ChangeOrder from "./hooks/ChangeOrder";
 import CheckboxTable from "./hooks/CheckboxTable";
+import Deb from "./hooks/debounce/Deb";
+import AllFileUpload from "./hooks/AllFileUpload";
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
 );
@@ -108,7 +110,9 @@ const App = () => {
       {/* <XandO/> */}
       {/* <PollWidget/> */}
       {/* <ChangeOrder/> */}
-      <CheckboxTable />
+      {/* <CheckboxTable /> */}
+      {/* <Deb/> */}
+      <AllFileUpload/>
     </div>
   );
 };
