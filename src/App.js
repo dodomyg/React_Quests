@@ -40,6 +40,7 @@ import ChangeOrder from "./hooks/ChangeOrder";
 import CheckboxTable from "./hooks/CheckboxTable";
 import Deb from "./hooks/debounce/Deb";
 import AllFileUpload from "./hooks/AllFileUpload";
+import UserAutoComplete from "./hooks/UserAutoComplete";
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
 );
@@ -112,7 +113,8 @@ const App = () => {
       {/* <ChangeOrder/> */}
       {/* <CheckboxTable /> */}
       {/* <Deb/> */}
-      <AllFileUpload/>
+      {/* <AllFileUpload/> */}
+      <UserAutoComplete/>
     </div>
   );
 };
