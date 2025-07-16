@@ -41,6 +41,7 @@ import CheckboxTable from "./hooks/CheckboxTable";
 import Deb from "./hooks/debounce/Deb";
 import AllFileUpload from "./hooks/AllFileUpload";
 import UserAutoComplete from "./hooks/UserAutoComplete";
+import ResponsiveHeader from "./hooks/ResponsiveHeader";
 const LazyLoadingComponent = React.lazy(() =>
   import("../src/hooks/LazyLoading")
 );
@@ -114,7 +115,8 @@ const App = () => {
       {/* <CheckboxTable /> */}
       {/* <Deb/> */}
       {/* <AllFileUpload/> */}
-      <UserAutoComplete/>
+      {/* <UserAutoComplete/> */}
+      <ResponsiveHeader/>
     </div>
   );
 };
