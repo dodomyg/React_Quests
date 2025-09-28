@@ -23,7 +23,8 @@ import ProgressComponent from "./hooks/ProgressComponent";
 import ThemePage from "./hooks/ThemePage";
 import { SwitchContext } from "./context/SwitchContext";
 import Quiz from "./hooks/Quiz";
-import Main from "./hooks/BreadCrumbs/Main";
+// import Main from "./hooks/BreadCrumbs/Main";
+import Main from "./hooks/TicketBooking/Main"
 import ProductPage from "./hooks/BreadCrumbs/ProductPage";
 import SingleProduct from "./hooks/BreadCrumbs/SingleProduct";
 import BreadCrumbs from "./hooks/BreadCrumbs";
@@ -53,20 +54,21 @@ const App = () => {
 
   const location = useLocation();
 
-  useEffect(() => {
-    document.querySelector(".parent").classList.remove("light", "dark");
-    document.querySelector(".parent").classList.add(theme);
-  }, [theme]);
+  // useEffect(() => {
+  //   document.querySelector(".parent").classList.remove("light", "dark");
+  //   document.querySelector(".parent").classList.add(theme);
+  // }, [theme]);
 
   return (
     <div
-      className={`parent w-full h-full ${
-        theme === "light" ? "bg-white text-black" : "bg-black text-white"
-      }`}
+    //   className={`parent w-full h-full ${
+    //     theme === "light" ? "bg-white text-black" : "bg-black text-white"
+    //   }`
+    // }
     >
-      <button className="text-3xl fixed top-5 right-5" onClick={toggleTheme}>
+      {/* <button className="text-3xl fixed top-5 right-5" onClick={toggleTheme}>
         {theme === "light" ? "🌙" : "☀️"}
-      </button>
+      </button> */}
       {/* <UseEffect /> */}
       {/* <ExampleComponent /> */}
       {/* <Ref /> */}
@@ -116,7 +118,8 @@ const App = () => {
       {/* <Deb/> */}
       {/* <AllFileUpload/> */}
       {/* <UserAutoComplete/> */}
-      <ResponsiveHeader/>
+      {/* <ResponsiveHeader/> */}
+      <Main/>
     </div>
   );
 };
