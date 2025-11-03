@@ -24,7 +24,7 @@ import ThemePage from "./hooks/ThemePage";
 import { SwitchContext } from "./context/SwitchContext";
 import Quiz from "./hooks/Quiz";
 // import Main from "./hooks/BreadCrumbs/Main";
-import Main from "./hooks/TicketBooking/Main"
+// import Main from "./hooks/TicketBooking/Main"
 import ProductPage from "./hooks/BreadCrumbs/ProductPage";
 import SingleProduct from "./hooks/BreadCrumbs/SingleProduct";
 import BreadCrumbs from "./hooks/BreadCrumbs";
@@ -43,9 +43,10 @@ import Deb from "./hooks/debounce/Deb";
 import AllFileUpload from "./hooks/AllFileUpload";
 import UserAutoComplete from "./hooks/UserAutoComplete";
 import ResponsiveHeader from "./hooks/ResponsiveHeader";
-const LazyLoadingComponent = React.lazy(() =>
-  import("../src/hooks/LazyLoading")
-);
+import Main from "./hooks/StepForm/Main";
+// const LazyLoadingComponent = React.lazy(() =>
+//   import("../src/hooks/LazyLoading")
+// );
 
 const App = () => {
   // const { data , loading , error} = useApiCall('https://jsonplaceholder.typicode.com/posts')
@@ -119,6 +120,7 @@ const App = () => {
       {/* <AllFileUpload/> */}
       {/* <UserAutoComplete/> */}
       {/* <ResponsiveHeader/> */}
+      {/* <Main/> */}
       <Main/>
     </div>
   );
