@@ -43,7 +43,8 @@ import Deb from "./hooks/debounce/Deb";
 import AllFileUpload from "./hooks/AllFileUpload";
 import UserAutoComplete from "./hooks/UserAutoComplete";
 import ResponsiveHeader from "./hooks/ResponsiveHeader";
-import Main from "./hooks/StepForm/Main";
+import Main from "./hooks/Folders/Main";
+// import Main from "./hooks/StepForm/Main";
 // const LazyLoadingComponent = React.lazy(() =>
 //   import("../src/hooks/LazyLoading")
 // );
@@ -121,7 +122,8 @@ const App = () => {
       {/* <UserAutoComplete/> */}
       {/* <ResponsiveHeader/> */}
       {/* <Main/> */}
-      <Main/>
+      {/* <Main/> */}
+      <Main />
     </div>
   );
 };

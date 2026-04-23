@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Documents",
+    "isFolder": true
+  },
+  {
+    "name": "new.json",
+    "isFolder": false
+  },
+  {
+    "name": "Components",
+    "isFolder": true,
+    "children": [
+      {
+        "name": "Button.js",
+        "isFolder": false
+      },
+      {
+        "name": "Input.js",
+        "isFolder": false
+      },
+      {
+        "name": "Select.js",
+        "isFolder": false
+      },
+      {
+        "name": "Styles",
+        "isFolder": true,
+        "children": [
+          {
+            "name": "Button.css",
+            "isFolder": false
+          },
+          {
+            "name": "Input.css",
+            "isFolder": false
+          },
+          {
+            "name": "Select.css",
+            "isFolder": false
+          }
+        ]
+      }
+    ]
+  }
+]
